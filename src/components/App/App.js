@@ -15,18 +15,24 @@ class App extends Component {
     });
   }
 
-  render() {
+  buildtheWelcomeMessage = () => {
+    const {
+      firstName,
+      lastName
+    } = this.state;
+
     let welcomeMessage;
-    if (this.state.firstName) {
-      welcomeMessage = `Welcome, ${this.state.firstName} `;
+    if (firstName) {
+      welcomeMessage = `Welcome, ${firstName} `;
     }
 
-    if (this.state.lastName) {
+    if (lastName) {
       if (!welcomeMessage) {
         welcomeMessage = "Welcome, ";
       }
       // this adds the last name to the welcome message
-      welcomeMessage += this.state.lastName;
+      // this also defaults to last name if no first name is present
+      welcomeMessage += lastName;
     }
 
     // this takes away the space at the end of the first name in the initial welcome message
@@ -34,6 +40,11 @@ class App extends Component {
     if (welcomeMessage) {
       welcomeMessage = welcomeMessage.trim() + "!";
     }
+
+    return welcomeMessage;
+  }
+
+  render() {
 
     return (
       <div>
@@ -54,7 +65,7 @@ class App extends Component {
           />
         </form>
         <div>
-          <p>{welcomeMessage}</p>
+          <p>{this.buildtheWelcomeMessage()}</p>
         </div>
 
       </div>
