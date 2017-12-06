@@ -47,22 +47,31 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <div className="container">
         <form>
-          <label htmlFor="firstName">First Name:</label>
-          <input 
-            type="text"
-            name="firstName"
-            onChange={this.handleInputChanged}
-            value={this.state.firstName}
-          />
-          <label htmlFor="lastName">Last Name:</label>
-          <input 
-            type="text"
-            name="lastName"
-            onChange={this.handleInputChanged}
-            value={this.state.lastName}
-          />
+          <div className="form-group row">
+            <label htmlFor="firstName" className="col-sm-2 col-form-label">First Name:</label>
+            <div className="col-sm-10">
+              <input
+                className="form-control"
+                type="text"
+                name="firstName"
+                onChange={this.handleInputChanged}
+                value={this.state.firstName}
+              />
+            </div>
+          </div>
+          <div className="form-group row">
+            <label htmlFor="lastName" className="col-sm-2 col-form-label">Last Name:</label>
+            <div className="col-sm-10">
+              <input className="form-control"
+                type="text"
+                name="lastName"
+                onChange={this.handleInputChanged}
+                value={this.state.lastName}
+              />
+            </div>
+          </div>
         </form>
         <div>
           <p>{this.buildtheWelcomeMessage()}</p>
